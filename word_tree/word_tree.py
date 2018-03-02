@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 class TreeNode:
   def __init__(self, char):
     self.char = char
@@ -12,7 +10,8 @@ class TreeDictionary:
     self.terminal = False
 
   def next_char(self, part_word):
-    return next_char(self, part_word)
+    return sorted(next_char(self, part_word), 
+                  key=lambda c: 'zzz' if c is None else c)
 
 
 def next_char(node, part_word):
@@ -25,9 +24,9 @@ def next_char(node, part_word):
       return []
   except IndexError:
     if node.terminal:
-      return node.children.keys() + [None]
+      return list(node.children.keys()) + [None]
     else:
-      return node.children.keys()
+      return list(node.children.keys())
 
 def add(node, word):
   try:

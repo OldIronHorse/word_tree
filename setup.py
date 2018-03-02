@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 from setuptools import setup
 
 def readme():
@@ -10,11 +8,9 @@ setup(name='word_tree',
       version='0.1',
       description='Dictionary optimised for progressive lookup',
       long_description=readme(),
-      classifiers=[
-        'Programming Language :: Python :: 2.7',
-      ],
       keywords='dictionary word incremental lookup',
       url='http://github.com/OldIronHorse/word_tree',
+      download_url='https://github.com/oldironhorse/word_tree/archive/0.1.tar.gz',
       author='Simon Redding',
       author_email='s1m0n.r3dd1ng@gmail.com',
       license='GPL3',

@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 from word_tree import make_word_tree
 from unittest import main, TestCase
 
@@ -12,7 +10,7 @@ class TestTreeDictionary(TestCase):
     self.assertEqual([None], self.dictionary.next_char('dog'))
 
   def test_next_char_word_multiple_next(self):
-    self.assertEqual(['t', 'g', None],
+    self.assertEqual(['g', 't', None],
                      self.dictionary.next_char('do'))
 
   def test_next_char_not_a_word(self):
