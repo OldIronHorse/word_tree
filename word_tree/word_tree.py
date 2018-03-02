@@ -1,49 +1,30 @@
-class TreeNode:
-  def __init__(self, char):
-    self.char = char
-    self.children = {}
-    self.terminal = False
-
-class TreeDictionary:
-  def __init__(self):
-    self.children = {}
-    self.terminal = False
-
-  def next_char(self, part_word):
-    return sorted(next_char(self, part_word), 
-                  key=lambda c: 'zzz' if c is None else c)
-
-
 def next_char(node, part_word):
   try:
     c = part_word[0]
     rest_word = part_word[1:]
     try:
-      return next_char(node.children[c], rest_word)
+      return next_char(node[c], rest_word)
     except KeyError:
       return []
   except IndexError:
-    if node.terminal:
-      return list(node.children.keys()) + [None]
-    else:
-      return list(node.children.keys())
+    return sorted(node.keys(), key=lambda c: 'zz' if c is None else c)
 
 def add(node, word):
   try:
     c = word[0]
     rest_word = word[1:]
     try:
-      child = node.children[c]
+      child = node[c]
     except KeyError:
-      child = TreeNode(c)
-      node.children[c] = child
+      child = {}
+      node[c] = child
     add(child, rest_word)
   except IndexError:
-    node.terminal = True
+    node[None] = True
 
 
 def make_word_tree(wordlist):
-  dt = TreeDictionary()
+  root_node = {}
   for word in wordlist:
-    add(dt, word)
-  return dt
+    add(root_node, word)
+  return root_node

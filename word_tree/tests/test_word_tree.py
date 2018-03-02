@@ -1,4 +1,4 @@
-from word_tree import make_word_tree
+from word_tree import make_word_tree, next_char
 from unittest import main, TestCase
 
 class TestTreeDictionary(TestCase):
@@ -7,17 +7,17 @@ class TestTreeDictionary(TestCase):
                                             'quit', 'deque'])
 
   def test_next_char_word_no_next(self):
-    self.assertEqual([None], self.dictionary.next_char('dog'))
+    self.assertEqual([None], next_char(self.dictionary, 'dog'))
 
   def test_next_char_word_multiple_next(self):
     self.assertEqual(['g', 't', None],
-                     self.dictionary.next_char('do'))
+                     next_char(self.dictionary, 'do'))
 
   def test_next_char_not_a_word(self):
-    self.assertEqual([], self.dictionary.next_char('date'))
+    self.assertEqual([], next_char(self.dictionary, 'date'))
 
   def test_qu_next(self):
-    self.assertEqual(['q'], self.dictionary.next_char('de'))
+    self.assertEqual(['q'], next_char(self.dictionary, 'de'))
 
 
 if __name__ == '__main__':

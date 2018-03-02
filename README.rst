@@ -10,7 +10,7 @@ To use:
   >>> with open('words.lst') as wl:
   ...   wt = word_tree.make_word_tree([w.strip() for w in wl])
   ...
-  >>> wt.next_char('do')
+  >>> word_tree.next_char(wt, 'do')
   ['c', 'e', 'd', 'g', 'i', 'm', 'l', 'o', 'n', 'p', 's', 'r', 'u', 't', 'w',
    'v', 'z', None]
 
